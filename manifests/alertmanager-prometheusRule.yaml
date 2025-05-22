@@ -6,15 +6,818 @@ metadata:
     app.kubernetes.io/instance: main
     app.kubernetes.io/name: alertmanager
     app.kubernetes.io/part-of: kube-prometheus
-    app.kubernetes.io/version: 0.28.1
+    app.kubernetes.io/version: 0.27.0
     prometheus: k8s
     role: alert-rules
   name: alertmanager-main-rules
   namespace: monitoring
 spec:
   groups:
-  - name: alertmanager.rules
+  - name: ICOIN-STATEFULSET
     rules:
+    - alert: monitoring-alertmanager-main
+      annotations:
+      expr: |
+        kube_statefulset_status_replicas_available{namespace="monitoring",statefulset="alertmanager-main"} < 1
+      for: 1m
+      labels:
+        severity: critical
+
+    - alert: monitoring-prometheus-k8s
+      annotations:
+      expr: |
+        kube_statefulset_status_replicas_available{namespace="monitoring",statefulset="prometheus-k8s"} < 1
+      for: 1m
+      labels:
+        severity: critical
+
+    - alert: default-group-a-kylin-market-kylin-market-impl
+      annotations:
+      expr: |
+        kube_statefulset_status_replicas_available{namespace="default",statefulset="group-a-kylin-market-kylin-market-impl"} < 1
+      for: 1m
+      labels:
+        severity: critical
+
+
+    - alert: default-group-a-kylin-matcher-kylin-matcher-impl
+      annotations:
+      expr: |
+        kube_statefulset_status_replicas_available{namespace="default",statefulset="group-a-kylin-matcher-kylin-matcher-impl"} < 1
+      for: 1m
+      labels:
+        severity: critical
+
+
+    - alert: default-group-a-kylin-position-kylin-position-impl
+      annotations:
+      expr: |
+        kube_statefulset_status_replicas_available{namespace="default",statefulset="group-a-kylin-position-kylin-position-impl"} < 1
+      for: 1m
+      labels:
+        severity: critical
+
+
+    - alert: default-group-a-tiger-bot-tiger-bot-copytrade
+      annotations:
+      expr: |
+        kube_statefulset_status_replicas_available{namespace="default",statefulset="group-a-tiger-bot-tiger-bot-copytrade"} < 1
+      for: 1m
+      labels:
+        severity: critical
+
+
+    - alert: default-group-a-tiger-clearing-tiger-clearing-liquidation
+      annotations:
+      expr: |
+        kube_statefulset_status_replicas_available{namespace="default",statefulset="group-a-tiger-clearing-tiger-clearing-liquidation"} < 1
+      for: 1m
+      labels:
+        severity: critical
+
+
+    - alert: default-group-a-tiger-market-tiger-market-impl
+      annotations:
+      expr: |
+        kube_statefulset_status_replicas_available{namespace="default",statefulset="group-a-tiger-market-tiger-market-impl"} < 1
+      for: 1m
+      labels:
+        severity: critical
+
+
+    - alert: default-group-a-tiger-matcher-tiger-matcher-impl
+      annotations:
+      expr: |
+        kube_statefulset_status_replicas_available{namespace="default",statefulset="group-a-tiger-matcher-tiger-matcher-impl"} < 1
+      for: 1m
+      labels:
+        severity: critical
+
+
+    - alert: default-group-a-tiger-position-tiger-position-impl
+      annotations:
+      expr: |
+        kube_statefulset_status_replicas_available{namespace="default",statefulset="group-a-tiger-position-tiger-position-impl"} < 1
+      for: 1m
+      labels:
+        severity: critical
+
+
+    - alert: default-group-b-kylin-market-kylin-market-impl
+      annotations:
+      expr: |
+        kube_statefulset_status_replicas_available{namespace="default",statefulset="group-b-kylin-market-kylin-market-impl"} < 1
+      for: 1m
+      labels:
+        severity: critical
+
+
+    - alert: default-group-b-kylin-matcher-kylin-matcher-impl
+      annotations:
+      expr: |
+        kube_statefulset_status_replicas_available{namespace="default",statefulset="group-b-kylin-matcher-kylin-matcher-impl"} < 1
+      for: 1m
+      labels:
+        severity: critical
+
+
+    - alert: default-group-b-kylin-position-kylin-position-impl
+      annotations:
+      expr: |
+        kube_statefulset_status_replicas_available{namespace="default",statefulset="group-b-kylin-position-kylin-position-impl"} < 1
+      for: 1m
+      labels:
+        severity: critical
+
+
+    - alert: default-group-b-tiger-clearing-tiger-clearing-liquidation
+      annotations:
+      expr: |
+        kube_statefulset_status_replicas_available{namespace="default",statefulset="group-b-tiger-clearing-tiger-clearing-liquidation"} < 1
+      for: 1m
+      labels:
+        severity: critical
+
+
+    - alert: default-group-b-tiger-market-tiger-market-impl
+      annotations:
+      expr: |
+        kube_statefulset_status_replicas_available{namespace="default",statefulset="group-b-tiger-market-tiger-market-impl"} < 1
+      for: 1m
+      labels:
+        severity: critical
+
+
+    - alert: default-group-b-tiger-matcher-tiger-matcher-impl
+      annotations:
+      expr: |
+        kube_statefulset_status_replicas_available{namespace="default",statefulset="group-b-tiger-matcher-tiger-matcher-impl"} < 1
+      for: 1m
+      labels:
+        severity: critical
+
+
+    - alert: default-group-b-tiger-position-tiger-position-impl
+      annotations:
+      expr: |
+        kube_statefulset_status_replicas_available{namespace="default",statefulset="group-b-tiger-position-tiger-position-impl"} < 1
+      for: 1m
+      labels:
+        severity: critical
+
+
+    - alert: default-group-c-tiger-market-tiger-market-impl
+      annotations:
+      expr: |
+        kube_statefulset_status_replicas_available{namespace="default",statefulset="group-c-tiger-market-tiger-market-impl"} < 1
+      for: 1m
+      labels:
+        severity: critical
+
+
+    - alert: default-group-c-tiger-matcher-tiger-matcher-impl
+      annotations:
+      expr: |
+        kube_statefulset_status_replicas_available{namespace="default",statefulset="group-c-tiger-matcher-tiger-matcher-impl"} < 1
+      for: 1m
+      labels:
+        severity: critical
+
+
+    - alert: default-group-d-tiger-market-tiger-market-impl
+      annotations:
+      expr: |
+        kube_statefulset_status_replicas_available{namespace="default",statefulset="group-d-tiger-market-tiger-market-impl"} < 1
+      for: 1m
+      labels:
+        severity: critical
+
+
+    - alert: default-group-d-tiger-matcher-tiger-matcher-impl
+      annotations:
+      expr: |
+        kube_statefulset_status_replicas_available{namespace="default",statefulset="group-d-tiger-matcher-tiger-matcher-impl"} < 1
+      for: 1m
+      labels:
+        severity: critical
+
+
+    - alert: default-kylin-matcher-kylin-matcher-execution-router
+      annotations:
+      expr: |
+        kube_statefulset_status_replicas_available{namespace="default",statefulset="kylin-matcher-kylin-matcher-execution-router"} < 1
+      for: 1m
+      labels:
+        severity: critical
+
+
+    - alert: default-kylin-matcher-kylin-matcher-market-router
+      annotations:
+      expr: |
+        kube_statefulset_status_replicas_available{namespace="default",statefulset="kylin-matcher-kylin-matcher-market-router"} < 1
+      for: 1m
+      labels:
+        severity: critical
+
+
+    - alert: default-kylin-matcher-kylin-matcher-order-router
+      annotations:
+      expr: |
+        kube_statefulset_status_replicas_available{namespace="default",statefulset="kylin-matcher-kylin-matcher-order-router"} < 1
+      for: 1m
+      labels:
+        severity: critical
+
+
+    - alert: default-tiger-clearing-tiger-clearing-fundrate
+      annotations:
+      expr: |
+        kube_statefulset_status_replicas_available{namespace="default",statefulset="tiger-clearing-tiger-clearing-fundrate"} < 1
+      for: 1m
+      labels:
+        severity: critical
+
+
+    - alert: default-tiger-clearing-tiger-clearing-reduction
+      annotations:
+      expr: |
+        kube_statefulset_status_replicas_available{namespace="default",statefulset="tiger-clearing-tiger-clearing-reduction"} < 1
+      for: 1m
+      labels:
+        severity: critical
+
+
+    - alert: default-tiger-clearing-tiger-clearing-router
+      annotations:
+      expr: |
+        kube_statefulset_status_replicas_available{namespace="default",statefulset="tiger-clearing-tiger-clearing-router"} < 1
+      for: 1m
+      labels:
+        severity: critical
+
+
+    - alert: default-tiger-entrust-tiger-entrust-impl
+      annotations:
+      expr: |
+        kube_statefulset_status_replicas_available{namespace="default",statefulset="tiger-entrust-tiger-entrust-impl"} < 1
+      for: 1m
+      labels:
+        severity: critical
+
+
+    - alert: default-tiger-matcher-tiger-matcher-execution-router
+      annotations:
+      expr: |
+        kube_statefulset_status_replicas_available{namespace="default",statefulset="tiger-matcher-tiger-matcher-execution-router"} < 1
+      for: 1m
+      labels:
+        severity: critical
+
+
+    - alert: default-tiger-matcher-tiger-matcher-market-router
+      annotations:
+      expr: |
+        kube_statefulset_status_replicas_available{namespace="default",statefulset="tiger-matcher-tiger-matcher-market-router"} < 1
+      for: 1m
+      labels:
+        severity: critical
+
+
+    - alert: default-tiger-matcher-tiger-matcher-order-router
+      annotations:
+      expr: |
+        kube_statefulset_status_replicas_available{namespace="default",statefulset="tiger-matcher-tiger-matcher-order-router"} < 1
+      for: 1m
+      labels:
+        severity: critical
+
+
+    # - alert: default-tiger-options-tiger-options-impl
+    #   annotations:
+    #   expr: |
+    #     kube_statefulset_status_replicas_available{namespace="default",statefulset="tiger-options-tiger-options-impl"} < 1
+    #   for: 1m
+    #   labels:
+    #     severity: critical 
+
+  - name: ICOIN-DAEMONSET
+    rules: 
+    - alert: monitoring-node-exporter
+      annotations:
+        description: node-exporter container in the monitoring namespace is restarting frequently.
+      expr: |
+        kube_daemonset_status_number_unavailable{daemonset="node-exporter",namespace="monitoring"} > 0
+      for: 1m
+      labels:
+        severity: critical
+
+  - name: ICOIN-DEPLOYMENT
+    rules: 
+    - alert: default-fiex-kylin-tenant-admin-web-frontend
+      annotations:
+      expr: |
+        kube_deployment_status_replicas_unavailable{namespace="default", deployment="fiex-kylin-tenant-admin-web-frontend"} > 0
+      for: 1m
+      labels:
+        severity: critical
+
+
+    - alert: default-kylin-admin-kylin-admin-impl
+      annotations:
+      expr: |
+        kube_deployment_status_replicas_unavailable{namespace="default", deployment="kylin-admin-kylin-admin-impl"} > 0
+      for: 1m
+      labels:
+        severity: critical
+
+
+    - alert: default-kylin-admin-kylin-admin-monitor
+      annotations:
+      expr: |
+        kube_deployment_status_replicas_unavailable{namespace="default", deployment="kylin-admin-kylin-admin-monitor"} > 0
+      for: 1m
+      labels:
+        severity: critical
+
+
+    - alert: default-kylin-admin-web-frontend
+      annotations:
+      expr: |
+        kube_deployment_status_replicas_unavailable{namespace="default", deployment="kylin-admin-web-frontend"} > 0
+      for: 1m
+      labels:
+        severity: critical
+
+
+    - alert: default-kylin-biz-kylin-biz-webapp
+      annotations:
+      expr: |
+        kube_deployment_status_replicas_unavailable{namespace="default", deployment="kylin-biz-kylin-biz-webapp"} > 0
+      for: 1m
+      labels:
+        severity: critical
+
+
+    - alert: default-kylin-biz-kylin-biz-websocket
+      annotations:
+      expr: |
+        kube_deployment_status_replicas_unavailable{namespace="default", deployment="kylin-biz-kylin-biz-websocket"} > 0
+      for: 1m
+      labels:
+        severity: critical
+
+
+    - alert: default-kylin-biz-kylin-scheduled
+      annotations:
+      expr: |
+        kube_deployment_status_replicas_unavailable{namespace="default", deployment="kylin-biz-kylin-scheduled"} > 0
+      for: 1m
+      labels:
+        severity: critical
+
+
+    - alert: default-kylin-gateway-app
+      annotations:
+      expr: |
+        kube_deployment_status_replicas_unavailable{namespace="default", deployment="kylin-gateway-app"} > 0
+      for: 1m
+      labels:
+        severity: critical
+
+
+    - alert: default-kylin-market-kylin-market-cache
+      annotations:
+      expr: |
+        kube_deployment_status_replicas_unavailable{namespace="default", deployment="kylin-market-kylin-market-cache"} > 0
+      for: 1m
+      labels:
+        severity: critical
+
+
+    - alert: default-kylin-market-kylin-market-sync
+      annotations:
+      expr: |
+        kube_deployment_status_replicas_unavailable{namespace="default", deployment="kylin-market-kylin-market-sync"} > 0
+      for: 1m
+      labels:
+        severity: critical
+
+
+    - alert: default-kylin-matcher-kylin-matcher-cache
+      annotations:
+      expr: |
+        kube_deployment_status_replicas_unavailable{namespace="default", deployment="kylin-matcher-kylin-matcher-cache"} > 0
+      for: 1m
+      labels:
+        severity: critical
+
+
+    - alert: default-kylin-matcher-kylin-matcher-sync
+      annotations:
+      expr: |
+        kube_deployment_status_replicas_unavailable{namespace="default", deployment="kylin-matcher-kylin-matcher-sync"} > 0
+      for: 1m
+      labels:
+        severity: critical
+
+
+    - alert: default-kylin-message-kylin-message-admin
+      annotations:
+      expr: |
+        kube_deployment_status_replicas_unavailable{namespace="default", deployment="kylin-message-kylin-message-admin"} > 0
+      for: 1m
+      labels:
+        severity: critical
+
+
+    - alert: default-kylin-message-kylin-message-impl
+      annotations:
+      expr: |
+        kube_deployment_status_replicas_unavailable{namespace="default", deployment="kylin-message-kylin-message-impl"} > 0
+      for: 1m
+      labels:
+        severity: critical
+
+
+    - alert: default-kylin-otc-admin-service
+      annotations:
+      expr: |
+        kube_deployment_status_replicas_unavailable{namespace="default", deployment="kylin-otc-admin-service"} > 0
+      for: 1m
+      labels:
+        severity: critical
+
+
+    - alert: default-kylin-otc-internal
+      annotations:
+      expr: |
+        kube_deployment_status_replicas_unavailable{namespace="default", deployment="kylin-otc-internal"} > 0
+      for: 1m
+      labels:
+        severity: critical
+
+
+    - alert: default-kylin-otc-rest-service
+      annotations:
+      expr: |
+        kube_deployment_status_replicas_unavailable{namespace="default", deployment="kylin-otc-rest-service"} > 0
+      for: 1m
+      labels:
+        severity: critical
+
+
+    - alert: default-kylin-position-kylin-position-cache
+      annotations:
+      expr: |
+        kube_deployment_status_replicas_unavailable{namespace="default", deployment="kylin-position-kylin-position-cache"} > 0
+      for: 1m
+      labels:
+        severity: critical
+
+
+    - alert: default-kylin-position-kylin-position-sync
+      annotations:
+      expr: |
+        kube_deployment_status_replicas_unavailable{namespace="default", deployment="kylin-position-kylin-position-sync"} > 0
+      for: 1m
+      labels:
+        severity: critical
+
+
+    - alert: default-kylin-price-kylin-price-impl
+      annotations:
+      expr: |
+        kube_deployment_status_replicas_unavailable{namespace="default", deployment="kylin-price-kylin-price-impl"} > 0
+      for: 1m
+      labels:
+        severity: critical
+
+
+    - alert: default-kylin-tenant-kylin-tenant-impl
+      annotations:
+      expr: |
+        kube_deployment_status_replicas_unavailable{namespace="default", deployment="kylin-tenant-kylin-tenant-impl"} > 0
+      for: 1m
+      labels:
+        severity: critical
+
+
+    - alert: default-kylin-user-center
+      annotations:
+      expr: |
+        kube_deployment_status_replicas_unavailable{namespace="default", deployment="kylin-user-center"} > 0
+      for: 1m
+      labels:
+        severity: critical
+
+
+    - alert: default-kylin-web-frontend
+      annotations:
+      expr: |
+        kube_deployment_status_replicas_unavailable{namespace="default", deployment="kylin-web-frontend"} > 0
+      for: 1m
+      labels:
+        severity: critical
+
+
+    - alert: default-kylin-web-mega-frontend
+      annotations:
+      expr: |
+        kube_deployment_status_replicas_unavailable{namespace="default", deployment="kylin-web-mega-frontend"} > 0
+      for: 1m
+      labels:
+        severity: critical
+
+
+    - alert: default-mega-partner-admin-web-frontend
+      annotations:
+      expr: |
+        kube_deployment_status_replicas_unavailable{namespace="default", deployment="mega-partner-admin-web-frontend"} > 0
+      for: 1m
+      labels:
+        severity: critical
+
+
+    - alert: default-message-admin-web-frontend
+      annotations:
+      expr: |
+        kube_deployment_status_replicas_unavailable{namespace="default", deployment="message-admin-web-frontend"} > 0
+      for: 1m
+      labels:
+        severity: critical
+
+
+    - alert: default-prometheus-operator
+      annotations:
+      expr: |
+        kube_deployment_status_replicas_unavailable{namespace="default", deployment="prometheus-operator"} > 0
+      for: 1m
+      labels:
+        severity: critical
+
+
+    - alert: default-sky-web-frontend
+      annotations:
+      expr: |
+        kube_deployment_status_replicas_unavailable{namespace="default", deployment="sky-web-frontend"} > 0
+      for: 1m
+      labels:
+        severity: critical
+
+
+    - alert: default-skybit-kylin-tenant-admin-web-frontend
+      annotations:
+      expr: |
+        kube_deployment_status_replicas_unavailable{namespace="default", deployment="skybit-kylin-tenant-admin-web-frontend"} > 0
+      for: 1m
+      labels:
+        severity: critical
+
+
+    - alert: default-skybit-partner-admin-web-frontend
+      annotations:
+      expr: |
+        kube_deployment_status_replicas_unavailable{namespace="default", deployment="skybit-partner-admin-web-frontend"} > 0
+      for: 1m
+      labels:
+        severity: critical
+
+
+    - alert: default-tiger-admin-tiger-admin-activity
+      annotations:
+      expr: |
+        kube_deployment_status_replicas_unavailable{namespace="default", deployment="tiger-admin-tiger-admin-activity"} > 0
+      for: 1m
+      labels:
+        severity: critical
+
+
+    - alert: default-tiger-admin-tiger-admin-impl
+      annotations:
+      expr: |
+        kube_deployment_status_replicas_unavailable{namespace="default", deployment="tiger-admin-tiger-admin-impl"} > 0
+      for: 1m
+      labels:
+        severity: critical
+
+
+    - alert: default-tiger-admin-tiger-admin-monitor
+      annotations:
+      expr: |
+        kube_deployment_status_replicas_unavailable{namespace="default", deployment="tiger-admin-tiger-admin-monitor"} > 0
+      for: 1m
+      labels:
+        severity: critical
+
+
+    - alert: default-tiger-admin-tiger-admin-risk
+      annotations:
+      expr: |
+        kube_deployment_status_replicas_unavailable{namespace="default", deployment="tiger-admin-tiger-admin-risk"} > 0
+      for: 1m
+      labels:
+        severity: critical
+
+
+    - alert: default-tiger-admin-tiger-admin-task
+      annotations:
+      expr: |
+        kube_deployment_status_replicas_unavailable{namespace="default", deployment="tiger-admin-tiger-admin-task"} > 0
+      for: 1m
+      labels:
+        severity: critical
+
+
+    - alert: default-tiger-admin-web-frontend
+      annotations:
+      expr: |
+        kube_deployment_status_replicas_unavailable{namespace="default", deployment="tiger-admin-web-frontend"} > 0
+      for: 1m
+      labels:
+        severity: critical
+
+
+    - alert: default-tiger-biz-tiger-biz-internal
+      annotations:
+      expr: |
+        kube_deployment_status_replicas_unavailable{namespace="default", deployment="tiger-biz-tiger-biz-internal"} > 0
+      for: 1m
+      labels:
+        severity: critical
+
+
+    - alert: default-tiger-biz-tiger-biz-order
+      annotations:
+      expr: |
+        kube_deployment_status_replicas_unavailable{namespace="default", deployment="tiger-biz-tiger-biz-order"} > 0
+      for: 1m
+      labels:
+        severity: critical
+
+
+    - alert: default-tiger-biz-tiger-biz-quotation
+      annotations:
+      expr: |
+        kube_deployment_status_replicas_unavailable{namespace="default", deployment="tiger-biz-tiger-biz-quotation"} > 0
+      for: 1m
+      labels:
+        severity: critical
+
+
+    - alert: default-tiger-biz-tiger-biz-user
+      annotations:
+      expr: |
+        kube_deployment_status_replicas_unavailable{namespace="default", deployment="tiger-biz-tiger-biz-user"} > 0
+      for: 1m
+      labels:
+        severity: critical
+
+
+    - alert: default-tiger-biz-tiger-biz-user-websocket
+      annotations:
+      expr: |
+        kube_deployment_status_replicas_unavailable{namespace="default", deployment="tiger-biz-tiger-biz-user-websocket"} > 0
+      for: 1m
+      labels:
+        severity: critical
+
+
+    - alert: default-tiger-biz-tiger-biz-websocket
+      annotations:
+      expr: |
+        kube_deployment_status_replicas_unavailable{namespace="default", deployment="tiger-biz-tiger-biz-websocket"} > 0
+      for: 1m
+      labels:
+        severity: critical
+
+
+    - alert: default-tiger-bot-tiger-bot-task
+      annotations:
+      expr: |
+        kube_deployment_status_replicas_unavailable{namespace="default", deployment="tiger-bot-tiger-bot-task"} > 0
+      for: 1m
+      labels:
+        severity: critical
+
+
+    - alert: default-tiger-market-tiger-market-cache
+      annotations:
+      expr: |
+        kube_deployment_status_replicas_unavailable{namespace="default", deployment="tiger-market-tiger-market-cache"} > 0
+      for: 1m
+      labels:
+        severity: critical
+
+
+    - alert: default-tiger-market-tiger-market-sync
+      annotations:
+      expr: |
+        kube_deployment_status_replicas_unavailable{namespace="default", deployment="tiger-market-tiger-market-sync"} > 0
+      for: 1m
+      labels:
+        severity: critical
+
+
+    - alert: default-tiger-matcher-tiger-matcher-cache
+      annotations:
+      expr: |
+        kube_deployment_status_replicas_unavailable{namespace="default", deployment="tiger-matcher-tiger-matcher-cache"} > 0
+      for: 1m
+      labels:
+        severity: critical
+
+
+    - alert: default-tiger-matcher-tiger-matcher-sync
+      annotations:
+      expr: |
+        kube_deployment_status_replicas_unavailable{namespace="default", deployment="tiger-matcher-tiger-matcher-sync"} > 0
+      for: 1m
+      labels:
+        severity: critical
+
+
+    - alert: default-tiger-notify-tiger-notify-impl
+      annotations:
+      expr: |
+        kube_deployment_status_replicas_unavailable{namespace="default", deployment="tiger-notify-tiger-notify-impl"} > 0
+      for: 1m
+      labels:
+        severity: critical
+
+
+    - alert: default-tiger-partner-admin-channel
+      annotations:
+      expr: |
+        kube_deployment_status_replicas_unavailable{namespace="default", deployment="tiger-partner-admin-channel"} > 0
+      for: 1m
+      labels:
+        severity: critical
+
+
+    - alert: default-tiger-position-tiger-position-cache
+      annotations:
+      expr: |
+        kube_deployment_status_replicas_unavailable{namespace="default", deployment="tiger-position-tiger-position-cache"} > 0
+      for: 1m
+      labels:
+        severity: critical
+
+
+    - alert: default-tiger-position-tiger-position-sync
+      annotations:
+      expr: |
+        kube_deployment_status_replicas_unavailable{namespace="default", deployment="tiger-position-tiger-position-sync"} > 0
+      for: 1m
+      labels:
+        severity: critical
+
+
+          # - alert: default-tiger-price-tiger-collect-impl
+          #   annotations:
+          #   expr: |
+          #     kube_deployment_status_replicas_unavailable{namespace="default", deployment="tiger-price-tiger-collect-impl"} > 0
+          #   for: 1m
+          #   labels:
+          #     severity: critical
+
+
+    - alert: default-tiger-price-tiger-price-impl
+      annotations:
+      expr: |
+        kube_deployment_status_replicas_unavailable{namespace="default", deployment="tiger-price-tiger-price-impl"} > 0
+      for: 1m
+      labels:
+        severity: critical
+
+
+    - alert: default-tiger-risk-tiger-risk-rule
+      annotations:
+      expr: |
+        kube_deployment_status_replicas_unavailable{namespace="default", deployment="tiger-risk-tiger-risk-rule"} > 0
+      for: 1m
+      labels:
+        severity: critical
+
+
+    # - alert: default-user-admin-web-frontend
+    #   annotations:
+    #   expr: |
+    #     kube_deployment_status_replicas_unavailable{namespace="default", deployment="user-admin-web-frontend"} > 0
+    #   for: 1m
+    #   labels:
+    #     severity: critical
+
+
+    - alert: default-user-center-service
+      annotations:
+      expr: |
+        kube_deployment_status_replicas_unavailable{namespace="default", deployment="user-center-service"} > 0
+      for: 1m
+      labels:
+        severity: critical
+    
+  - name: PROMETHEUS-RULES 
+    rules: 
     - alert: AlertmanagerFailedReload
       annotations:
         description: Configuration has failed to load for {{ $labels.namespace }}/{{ $labels.pod}}.
@@ -48,9 +851,9 @@ spec:
         summary: An Alertmanager instance failed to send notifications.
       expr: |
         (
-          rate(alertmanager_notifications_failed_total{job="alertmanager-main",namespace="monitoring"}[15m])
+          rate(alertmanager_notifications_failed_total{job="alertmanager-main",namespace="monitoring"}[5m])
         /
-          ignoring (reason) group_left rate(alertmanager_notifications_total{job="alertmanager-main",namespace="monitoring"}[15m])
+          ignoring (reason) group_left rate(alertmanager_notifications_total{job="alertmanager-main",namespace="monitoring"}[5m])
         )
         > 0.01
       for: 5m
@@ -63,9 +866,9 @@ spec:
         summary: All Alertmanager instances in a cluster failed to send notifications to a critical integration.
       expr: |
         min by (namespace,service, integration) (
-          rate(alertmanager_notifications_failed_total{job="alertmanager-main",namespace="monitoring", integration=~`.*`}[15m])
+          rate(alertmanager_notifications_failed_total{job="alertmanager-main",namespace="monitoring", integration=~`.*`}[5m])
         /
-          ignoring (reason) group_left rate(alertmanager_notifications_total{job="alertmanager-main",namespace="monitoring", integration=~`.*`}[15m])
+          ignoring (reason) group_left rate(alertmanager_notifications_total{job="alertmanager-main",namespace="monitoring", integration=~`.*`}[5m])
         )
         > 0.01
       for: 5m
@@ -78,9 +881,9 @@ spec:
         summary: All Alertmanager instances in a cluster failed to send notifications to a non-critical integration.
       expr: |
         min by (namespace,service, integration) (
-          rate(alertmanager_notifications_failed_total{job="alertmanager-main",namespace="monitoring", integration!~`.*`}[15m])
+          rate(alertmanager_notifications_failed_total{job="alertmanager-main",namespace="monitoring", integration!~`.*`}[5m])
         /
-          ignoring (reason) group_left rate(alertmanager_notifications_total{job="alertmanager-main",namespace="monitoring", integration!~`.*`}[15m])
+          ignoring (reason) group_left rate(alertmanager_notifications_total{job="alertmanager-main",namespace="monitoring", integration!~`.*`}[5m])
         )
         > 0.01
       for: 5m
