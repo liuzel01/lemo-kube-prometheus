@@ -1,0 +1,27 @@
+
+    - alert: default-ingress-nginx-controller
+      annotations:
+      expr: |
+        kube_statefulset_status_replicas_available{namespace="default",statefulset="ingress-nginx-controller"} < 1
+      for: 1m
+      labels:
+        severity: critical
+
+
+    - alert: default-job-ingress-nginx-controller-admission
+      annotations:
+      expr: |
+        kube_statefulset_status_replicas_available{namespace="default",statefulset="job-ingress-nginx-controller-admission"} < 1
+      for: 1m
+      labels:
+        severity: critical
+
+
+    - alert: default-xxl-job-admin-impl
+      annotations:
+      expr: |
+        kube_statefulset_status_replicas_available{namespace="default",statefulset="xxl-job-admin-impl"} < 1
+      for: 1m
+      labels:
+        severity: critical
+
