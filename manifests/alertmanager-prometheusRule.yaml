@@ -13,7 +13,7 @@ metadata:
   namespace: monitoring
 spec:
   groups:
-  - name: MEGA-STATEFULSET
+  - name: ICOIN-STATEFULSET
     rules:
     - alert: monitoring-alertmanager-main
       annotations:
@@ -300,7 +300,7 @@ spec:
     #   labels:
     #     severity: critical 
 
-  - name: MEGA-DAEMONSET
+  - name: ICOIN-DAEMONSET
     rules: 
     - alert: monitoring-node-exporter
       annotations:
@@ -311,7 +311,7 @@ spec:
       labels:
         severity: critical
 
-  - name: MEGA-DEPLOYMENT
+  - name: ICOIN-DEPLOYMENT
     rules: 
     - alert: job-ingress-nginx-controller
       annotations:
