@@ -7,10 +7,10 @@ def generate_alert_rules(services_file, output_file):
 
     # 告警规则模板
     alert_template = """
-    - alert: default-{service}
+    - alert: monitoring-{service}
       annotations:
       expr: |
-        kube_statefulset_status_replicas_available{{namespace="default",statefulset="{service}"}} < 1
+        kube_statefulset_status_replicas_available{{namespace="monitoring",statefulset="{service}"}} < 1
       for: 1m
       labels:
         severity: critical

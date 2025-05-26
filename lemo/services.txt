@@ -1,3 +1,2 @@
-ingress-nginx-controller
-job-ingress-nginx-controller-admission
-xxl-job-admin-impl
+alertmanager-main
+prometheus-k8s
