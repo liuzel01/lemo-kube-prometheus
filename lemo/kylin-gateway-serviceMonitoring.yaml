@@ -1,0 +1,27 @@
+apiVersion: monitoring.coreos.com/v1
+kind: ServiceMonitor
+metadata:
+  labels:
+    app.kubernetes.io/component: kylin-gateway-openapi-svcmonitor
+    app.kubernetes.io/name: kylin-gateway-openapi-svcmonitor
+    app.kubernetes.io/part-of: kube-prometheus
+    app.kubernetes.io/version: 11.2.0
+    prometheus: prometheus  # 匹配 Prometheus 的 ruleSelector
+  name: kylin-gateway-openapi-svcmonitor
+  namespace: monitoring
+spec:
+  namespaceSelector: 
+    matchNames: 
+      - default 
+  selector:
+    matchLabels:
+      app: kylin-gateway-openapi-service  # 假设服务有此标签
+  endpoints:
+    - port: http          # Service 的端口名
+      path: /actuator/prometheus
+      interval: 10s
+      relabelings:
+        - sourceLabels: [__address__]
+          targetLabel: instance
+          regex: '(.+):(.+)'
+          replacement: '${1}'

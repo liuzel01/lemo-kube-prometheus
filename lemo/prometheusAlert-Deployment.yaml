@@ -42,7 +42,7 @@ data:
     #日志文件路径
     logpath=logs/prometheusalertcenter.log
     #转换Prometheus,graylog告警消息的时区为CST时区(如默认已经是CST时区，请勿开启)
-    prometheus_cst_time=0
+    prometheus_cst_time=1
     #数据库驱动，支持sqlite3，mysql,postgres如使用mysql或postgres，请开启db_host,db_port,db_user,db_password,db_name的注释
     db_driver=sqlite3
     #db_host=127.0.0.1
@@ -89,9 +89,7 @@ data:
     #是否开启飞书告警通道,可同时开始多个通道0为关闭,1为开启
     open-feishu=1
     #默认飞书机器人地址
-    # fsurl=https://open.larksuite.com/open-apis/bot/v2/hook/b5ca68e7-cf48-4c86-87bc-e34ef09c898e
-    # fsurl=https://open.larksuite.com/open-apis/bot/v2/hook/8eb04c4b-8bc2-4681-b65d-069b757dd4e0
-    # fsurl=https://open.larksuite.com/open-apis/bot/v2/hook/42d13b48-f21b-4dd2-a167-a78cd8d5d846
+    fsurl=https://open.larksuite.com/open-apis/bot/v2/hook/b5ca68e7-cf48-4c86-87bc-e34ef09c898e
     # webhook 发送 http 请求的 contentType, 如 application/json, application/x-www-form-urlencoded，不配置默认 application/json
     wh_contenttype=application/json
     

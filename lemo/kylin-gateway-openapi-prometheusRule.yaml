@@ -1,0 +1,27 @@
+apiVersion: monitoring.coreos.com/v1
+kind: PrometheusRule
+metadata:
+  name: kylin-gateway-rules
+  namespace: monitoring
+  labels:
+    prometheus: prometheus
+spec:
+  groups:
+    - name: kylin-gateway
+      rules:
+        - alert: KylinGatewayDown
+          expr: up{"job="kylin-gateway-openapi} == 0
+          for: 5m
+          labels:
+            severity: critical
+          annotations:
+            summary: "Kylin Gateway instance {{ $labels.instance }} is down"
+            description: "Kylin Gateway has been down for more than 5 minutes."
+        - alert: HighRequestLatency
+          expr: rate(http_request_duration_seconds_sum{job="kylin-gateway-openapi"}[5m]) / rate(http_request_duration_seconds_count{job="kylin-gateway-openapi"}[5m]) > 0.5
+          for: 10m
+          labels:
+            severity: warning
+          annotations:
+            summary: "High request latency on {{ $labels.instance }}"
+            description: "Average request latency exceeds 0.5s for 10 minutes."

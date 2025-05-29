@@ -10,9 +10,6 @@ metadata:
   name: k8s
   namespace: monitoring
 spec:
-  scrapeInterval: "15s"
-  evaluationInterval: "15s"
-  scrapeTimeout: "10s"
   alerting:
     alertmanagers:
     - apiVersion: v2
