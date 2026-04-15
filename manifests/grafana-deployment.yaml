@@ -29,7 +29,9 @@ spec:
     spec:
       automountServiceAccountToken: false
       containers:
-      - env: []
+      - env:
+        - name: GF_SECURITY_ADMIN_PASSWORD
+          value: hashex123
         image: grafana/grafana:11.2.0
         name: grafana
         ports:
@@ -157,8 +159,9 @@ spec:
         runAsUser: 65534
       serviceAccountName: grafana
       volumes:
-      - emptyDir: {}
-        name: grafana-storage
+      - name: grafana-storage
+        persistentVolumeClaim:
+          claimName: efs-claim-hash
       - name: grafana-datasources
         secret:
           secretName: grafana-datasources

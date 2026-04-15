@@ -44,7 +44,7 @@ spec:
             name: prometheus-k8s
             port:
               number: 9090
-  - host: grafana.hashex.vip
+  - host: grafana.hhts88.com
     http:
       paths:
       - path: /
