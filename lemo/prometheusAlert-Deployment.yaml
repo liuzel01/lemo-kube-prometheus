@@ -72,7 +72,7 @@ data:
     
     #---------------------↓webhook-----------------------
     #是否开启钉钉告警通道,可同时开始多个通道0为关闭,1为开启
-    open-dingding=1
+    open-dingding=0
     #默认钉钉机器人地址
     ddurl=https://oapi.dingtalk.com/robot/send?access_token=xxxxx
     #是否开启 @所有人(0为关闭,1为开启)
@@ -82,14 +82,14 @@ data:
     open-dingding-secret=0
     
     #是否开启微信告警通道,可同时开始多个通道0为关闭,1为开启
-    open-weixin=1
+    open-weixin=0
     #默认企业微信机器人地址
     wxurl=https://qyapi.weixin.qq.com/cgi-bin/webhook/send?key=xxxxx
     
     #是否开启飞书告警通道,可同时开始多个通道0为关闭,1为开启
     open-feishu=1
     #默认飞书机器人地址
-    fsurl=https://open.larksuite.com/open-apis/bot/v2/hook/b5ca68e7-cf48-4c86-87bc-e34ef09c898e
+    fsurl=https://open.larksuite.com/open-apis/bot/v2/hook/89ad8801-6c43-4279-8eef-6a152917ea9e
     # webhook 发送 http 请求的 contentType, 如 application/json, application/x-www-form-urlencoded，不配置默认 application/json
     wh_contenttype=application/json
     
@@ -270,13 +270,13 @@ data:
     #---------------------↓语音播报-----------------------
     #语音播报需要配合语音播报插件才能使用
     #是否开启语音播报通道,0为关闭,1为开启
-    open-voice=1
+    open-voice=0
     VOICE_IP=127.0.0.1
     VOICE_PORT=9999
     
     #---------------------↓飞书机器人应用-----------------------
     #是否开启feishuapp告警通道,可同时开始多个通道0为关闭,1为开启
-    open-feishuapp=1
+    open-feishuapp=0
     # APPID
     FEISHU_APPID=cli_xxxxxxxxxxxxx
     # APPSECRET
@@ -300,7 +300,7 @@ data:
     
     #---------------------↓kafka地址-----------------------
     # kafka服务器的地址
-    open-kafka=1
+    open-kafka=0
     kafka_server = 127.0.0.1:9092
     # 写入消息的kafka topic
     kafka_topic = devops
